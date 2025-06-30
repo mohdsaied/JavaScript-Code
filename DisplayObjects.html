@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Displaying a JavaScript object will output [object Object]:</p>
+     <button onclick="showPerson()">Show Object</button>
+    <p id="demo"></p>
+    <script>
+        const person = {
+            firstName: "Mo",
+            lastName: "Saied",
+            age:25,
+            city:"Bangalore",
+            fullName: function() {
+                return this.firstName + " "+ this.lastName;
+            }
+        };
+
+        function showPerson() {
+            // You can format output manually, or use JSON.stringify
+            document.getElementById("demo").innerHTML =
+                "First Name: " + person.firstName + "<br>" +
+                "Last Name: " + person.lastName + "<br>" +
+                "Age: " + person.age + "<br>" +
+                "City: " + person.city + "<br>" +
+                "Full Name: " + person.fullName();
+        }
+
+
+        // Displaying the object
+    //    let a =  document.getElementById("demo").innerHTML = JSON.stringify(person);
+
+        // document.getElementById("demo").innerHTML = JSON.stringify(person, null, 2);
+
+
+    </script>
+</body>
+</html>
