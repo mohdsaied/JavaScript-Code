@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Click the button to show/hide the JavaScript object:</p>
+  <button onclick="togglePerson()">Show Object</button>
+  <div id="demo" style="display: none;"></div>
+    <script>
+
+        const person = {
+            firstName: "Mo",
+            lastName: "Saied",
+            age: 25,
+            city: "Bangalore",
+            fullName: function() {
+                return this.firstName + " " + this.lastName;
+            }
+        };
+
+         let isVisible = false;
+
+    function togglePerson() {
+      const demoDiv = document.getElementById("demo");
+      const button = document.querySelector("button");
+
+      if (!isVisible) {
+        // Show object
+        demoDiv.innerHTML =
+          "First Name: " + person.firstName + "<br>" +
+          "Last Name: " + person.lastName + "<br>" +
+          "Age: " + person.age + "<br>" +
+          "City: " + person.city + "<br>" +
+          "Full Name: " + person.fullName();
+        demoDiv.style.display = "block";
+        button.textContent = "Hide Object";
+      } else {
+        // Hide object
+        demoDiv.style.display = "none";
+        button.textContent = "Show Object";
+      }
+
+      isVisible = !isVisible; // toggle the state
+    }
+    </script>
+</body>
+</html>
